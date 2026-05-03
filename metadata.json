@@ -1,0 +1,6 @@
+{
+  "name": "FastPad",
+  "description": "A high-performance notepad app capable of following Obsidian/Logseq wikilinks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
