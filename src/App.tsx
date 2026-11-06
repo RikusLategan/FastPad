@@ -405,10 +405,13 @@ export default function App() {
        setDropdownVisible(true);
        
        const lowerQ = query.toLowerCase();
-       const allPageNames = Array.from(new Set(workspaceFilesRef.current.map(f => {
-          const parts = f.path.split('/');
-          return parts[parts.length - 1].replace(/\.md$/i, '');
-       })));
+       const allPageNames = Array.from(new Set(workspaceFilesRef.current
+          .filter(f => f.path.toLowerCase().endsWith('.md'))
+          .map(f => {
+            const parts = f.path.split('/');
+            return parts[parts.length - 1].replace(/\.md$/i, '');
+          })
+       )) as string[];
        
        const matches = allPageNames.filter(n => n.toLowerCase().includes(lowerQ)).slice(0, 10);
        setMatchingPages(matches);
